@@ -14,12 +14,6 @@ import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 import com.google.android.material.snackbar.Snackbar
 
-/**
- * A fragment with buttons to record start and end times for sleep, which are saved in
- * a database. Cumulative data is displayed in a simple scrollable TextView.
- * (Because we have not learned about RecyclerView yet.)
- * The Clear button will clear all data from the database.
- */
 class SleepTrackerFragment : Fragment() {
 
     /**
@@ -58,7 +52,7 @@ class SleepTrackerFragment : Fragment() {
 
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
             it?.let{
-                adapter.data = it
+                adapter.submitList(it)
             }
         })
 
