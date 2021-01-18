@@ -1,17 +1,12 @@
 package com.example.android.trackmysleepquality.sleeptracker
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.trackmysleepquality.R
-import com.example.android.trackmysleepquality.convertDurationToFormatted
-import com.example.android.trackmysleepquality.convertNumericQualityToString
 import com.example.android.trackmysleepquality.database.SleepNight
 import com.example.android.trackmysleepquality.databinding.ListItemSleepNightBinding
 
@@ -28,11 +23,6 @@ class SleepNightAdapter : ListAdapter<SleepNight, SleepNightAdapter.ViewHolder>(
                 return  ViewHolder(binding)
             }
         }
-
-        //Declaring the view on the layout
-        val sleepLength: TextView = binding.sleepLength
-        val quality: TextView = binding.qualityString
-        val qualityImage: ImageView = binding.qualityImage
 
         //Once in onCreateViewHolder
         fun bind(item: SleepNight) {
@@ -52,8 +42,6 @@ class SleepNightAdapter : ListAdapter<SleepNight, SleepNightAdapter.ViewHolder>(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder {
         return ViewHolder.from(parent)
     }
-
-
 }
 
 class SleepNightDiffCallback : DiffUtil.ItemCallback<SleepNight>() {
